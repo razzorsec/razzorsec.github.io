@@ -34,9 +34,41 @@ th {
 .foot-text{
 	text-align: center;
 }
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
 
 </style>
 <script type="text/javascript" src="script.js"></script>
+<script>
+	
+function searchTable() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+
+</script>
 </head>
 <body>
 <div class="row" style="margin-left:10px">
@@ -61,15 +93,18 @@ th {
 			
 		</ul>
 	</div>
-	<div class="col-md-12 text-center p-4">
+	<div class="col-md-6">
 		<h3>
 			Available Resources
 		</h3>
-		
+
+	</div>
+	<div class="col-md-6">
+		<input type="text" id="myInput" onkeyup="searchTable()" placeholder="Search for Resources.." title="Type in a Resource">
 	</div>
 	<div class="col-md-12 text-center p-3">
 
-      <table>
+      <table id="myTable">
         <thead>
           <tr>
             <th>Provided Resource</th>
