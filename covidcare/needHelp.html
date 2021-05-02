@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Covid Care</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style>
+		table{
+			  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+			width: 100%;
+		}
+		th, td{
+			border: 1px solid #ddd;
+ 		 	padding: 8px;
+		}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+	 padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.link-text {
+	text-decoration: none;
+	color: #0dcaf0;
+}
+
+.foot-text{
+	text-align: center;
+}
+
+</style>
+<script>
+
+
+    function tableFromJson() {
+
+
+		// the json data. (you can change the values here.)
+
+
+        var covidData = [
+            {'Provided Resource': 'Oxygen Cylinder', 'Person/Organization Name': 'Razzor',
+                'Amt Per Unit': '450', 'Contact': '9998887776', 'Status': 'Available'
+            },
+            {'Provided Resource': 'Test Entry 2', 'Person/Organization Name': 'Test Entry 2',
+                'Amt Per Unit': 'Test Entry 2', 'Contact': 'Test Entry 2', 'Status': 'Test Entry 2'
+            },
+            {'Provided Resource': 'Test Entry 3', 'Person/Organization Name': 'Test Entry 3',
+                'Amt Per Unit': 'Test Entry 3', 'Contact': 'Test Entry 3', 'Status': 'Test Entry 3'
+            }
+        ]
+
+       
+        var col = [];
+        for (var i = 0; i < covidData.length; i++) {
+            for (var key in covidData[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+
+        // Create a table.
+        var table = document.createElement("table");
+
+        // Create table header row using the extracted headers above.
+        var tr = table.insertRow(-1);                   // table row.
+
+        for (var i = 0; i < col.length; i++) {
+            var th = document.createElement("th");      // table header.
+            th.innerHTML = col[i];
+            tr.appendChild(th);
+        }
+
+        // add json data to the table as rows.
+        for (var i = 0; i < covidData.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (var j = 0; j < col.length; j++) {
+                var tabCell = tr.insertCell(-1);
+                tabCell.innerHTML = covidData[i][col[j]];
+            }
+        }
+
+        // Now, add the newly created table with json data, to a container.
+        var divShowData = document.getElementById('showData');
+        divShowData.innerHTML = "";
+        divShowData.appendChild(table);
+        
+    }
+    
+</script>
+</head>
+<body onload="tableFromJson()">
+<div class="row" style="margin-left:10px">
+	<div class="col-md-6">
+		<a class="link-text" href="index.html">
+		<h1 class="p-2">
+			
+		Covid Care
+		</h1>
+	</a>
+	</div>
+	<div class="col-md-6">
+		<ul class="nav nav-tabs">
+			<li class="p-4">
+				<a class="btn btn-info" href="index.html">Home</a>
+				
+			</li>
+			<li class="p-4">
+				<a class="btn btn-info" href="provideHelp.html">Provide Help</a>
+				
+			</li>
+			
+		</ul>
+	</div>
+	<div class="col-md-12 text-center p-4">
+		<h3>
+			Available Resources
+		</h3>
+		
+	</div>
+	<div class="col-md-12 text-center p-3">
+		<p id='showData'></p>
+		<br />
+		<h3>Kindly verify Person/Organization youself. Information provided here, is ONLY for helping purposes. We don't take responsibilty for any user actions</h3>
+	</div>
+</div>	
+<footer>
+		<div class="foot-text">
+Copyright &copy; 2021 - Created by RazzorSec
+</div>
+	</footer>
+</body>
+
+</html>
