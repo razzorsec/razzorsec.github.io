@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Covid Care</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<style>
+		table{
+			  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+			width: 100%;
+		}
+		th, td{
+			border: 1px solid #ddd;
+ 		 	padding: 8px;
+		}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+	 padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.link-text {
+	text-decoration: none;
+	color: #0dcaf0;
+}
+
+.foot-text{
+	text-align: center;
+}
+#myInput {
+  background-image: url('css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+</style>
+<script type="text/javascript" src="scriptForPlaces.js"></script>
+<script>
+	
+ (function(document) {
+            'use strict';
+
+            var TableFilter = (function(myArray) {
+                var search_input;
+
+                function _onInputSearch(e) {
+                    search_input = e.target;
+                    var tables = document.getElementsByClassName(search_input.getAttribute('data-table'));
+                    myArray.forEach.call(tables, function(table) {
+                        myArray.forEach.call(table.tBodies, function(tbody) {
+                            myArray.forEach.call(tbody.rows, function(row) {
+                                var text_content = row.textContent.toLowerCase();
+                                var search_val = search_input.value.toLowerCase();
+                                row.style.display = text_content.indexOf(search_val) > -1 ? '' : 'none';
+                            });
+                        });
+                    });
+                }
+
+                return {
+                    init: function() {
+                        var inputs = document.getElementsByClassName('search-input');
+                        myArray.forEach.call(inputs, function(input) {
+                            input.oninput = _onInputSearch;
+                        });
+                    }
+                };
+            })(Array.prototype);
+
+            document.addEventListener('readystatechange', function() {
+                if (document.readyState === 'complete') {
+                    TableFilter.init();
+                }
+            });
+
+        })(document);
+
+</script>
+</head>
+<body>
+<div class="row" style="margin-left:10px">
+	<div class="col-md-6">
+		<a class="link-text" href="index.html">
+		<h1 class="p-2">
+			
+		Covid Care
+		</h1>
+	</a>
+	</div>
+	<div class="col-md-6">
+		<ul class="nav nav-tabs">
+			<li class="p-4">
+				<a class="btn btn-info" href="index.html">Home</a>
+				
+			</li>
+      <li class="p-4">
+        <a class="btn btn-info" href="needHelp.html">Need Help?</a>
+        
+      </li>
+			<li class="p-4">
+				<a class="btn btn-info" href="provideHelp.html">Provide Help</a>
+				
+			</li>
+      <li class="p-4">
+        <a class="btn btn-info" href="helpline.html">Helpline Numbers</a>
+        
+      </li>
+			
+		</ul>
+	</div>
+	<div class="col-md-6">
+		<h3>
+			Other Helpful Sites to Get Resources
+		</h3>
+
+	</div>
+	<div class="col-md-6">
+		 <input type="search" placeholder="Search..." class="form-control search-input" data-table="covid-list" id="myInput" />
+	</div>
+	<div class="col-md-12 text-center p-3">
+
+      <table class="covid-list">
+        <thead>
+          <tr>
+            <th>Info</th>
+            <th>Site/Page</th>
+            </tr>
+        </thead>
+        <tbody id="showsiteData"></tbody>
+      </table>
+	
+		<br />
+		
+	</div>
+</div>	
+<footer>
+		<div class="foot-text">
+Copyright &copy; 2021 - Created by RazzorSec
+</div>
+	</footer>
+</body>
+
+</html>
