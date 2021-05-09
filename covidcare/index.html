@@ -3,40 +3,60 @@
 <head>
 	<title>Covid Care</title>
 	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<meta name="description" content="Covid Care is an initiative by RazzorSec to share info regarding available resources to fight COVID. WE'LL FIGHT TOGETHER">
-<style>
-.centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
+	<style>
+		.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 23%;
+  border-radius: 5px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
 
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
-.centered2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-   height: 200px;
-}
-.btn-marg {
-margin-right: 20px;
-height: 70px;
-width: 300px;
-font-size: 28px;
-font-style: italic;
 
+img {
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+ 
 }
+.logo{
+	width: 220px; 
+	height: 120px; 
+	display: block; 
+	float: right; 
+	margin-right: 20px;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
 .foot-text{
+	margin-top: 100px;
 	text-align: center;
 }
 
+@media screen and (max-width: 600px){
+	.card{
+		width: 100%
 
-</style>
+	}
+	.logo{
+		float: left;
+	}
 
+}
+
+	</style>
 </head>
 <body>
-	<div class="row" style="margin-left:10px">
+		<div class="row" style="margin-left:10px">
 	<div class="col-md-6">
 		<h1 class="p-2">
 			
@@ -44,32 +64,54 @@ font-style: italic;
 		</h1>
 	
 	</div>
-			<div class="col-md-6">
-  <img src="css/RazzorSecXCovid.png" style="width: 220px; height: 120px; display: block; float: right; margin-right: 20px;">
+	<div class="col-md-6">
+  <img src="RazzorSecXCovid.png" class="logo">
   
 </div>
 	
-	
 </div>	
-
-	
-
-<div class="centered">
-<a class="btn btn-info btn-marg" href="needHelp.html">Need Help?</a>
-<a class="btn btn-info btn-marg" href="provideHelp.html">Provide Help</a>
-
-</div>
-<div class="centered2">
-<a class="btn btn-info btn-marg" href="helpline.html">Helpline Numbers</a>
-<a class="btn btn-info btn-marg" href="otherPlaces.html">Other Helpful Sites</a>
-        
-
+<div class="row">
+<div class="card"><a href="needHelp.html" style="text-decoration: none; color: black;">
+  <img src="css/needHelp.jpg" alt="Need Help">
+  <div class="container">
+    <h4><b>Need Help?</b></h4> 
+    <p>Are you looking for some resources? We have curated a list that may help.</p> 
+  </div>
+</a>
 </div>
 
+<div class="card"><a href="provideHelp.html" style="text-decoration: none; color: black;">
+  <img src="css/helpingHand.jpg" alt="Provide Help">
+  <div class="container">
+    <h4><b>Provide Help</b></h4> 
+    <p>Do you want to save some lives? Please register with resources that you can help with</p> 
+  </div>
+</a>
+</div>
+
+<div class="card"><a href="helpline.html" style="text-decoration: none; color: black;">
+  <img src="css/emergency.jpg" alt="Helpline Numbers">
+  <div class="container">
+    <h4><b>Helpline Numbers</b></h4> 
+    <p>State Wise Helpline Numbers</p> 
+  </div>
+</a>
+</div>
+
+<div class="card"><a href="otherPlaces.html" style="text-decoration: none; color: black;">
+  <img src="css/community.jpg" alt="Other Helpful Sites">
+  <div class="container">
+    <h4><b>Other Helpful Sites</b></h4> 
+    <p>There are many other places, which are helping everyone to fight this Pandemic</p> 
+  </div>
+</a>
+</div>
+
+</div>
 	<footer>
 		<div class="foot-text">
 Copyright &copy; 2021 - Created by RazzorSec
 </div>
-	</footer>			
+	</footer>	
 </body>
 </html>
