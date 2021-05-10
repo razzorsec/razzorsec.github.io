@@ -10,10 +10,11 @@
 	<style>
 		.card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  width: 18%;
   transition: 0.3s;
   border-radius: 5px;
-  margin: auto;
+  margin-right: 20px;
+  margin-top: 20px;
   text-align: center;
   font-family: arial;
 }
@@ -83,7 +84,11 @@
     right: 0;
     top: 0;
   }
-
+@media screen and (max-width: 600px){
+	.card{
+		width: 100%;
+	}
+}
   .topnav.responsive a {
     float: none;
     display: block;
@@ -170,17 +175,26 @@
 
 
 
-	<div>
+	
 
 		<div class="card">
+			<a href="#" class="profile-text">
+		<img src="team/You.png" alt="Razzor" style="width:100%">
+  		<h1>YOU</h1>
+  		<p class="title">Join Us to Save Lives</p>
+  		</a>
+		</div>
+
+				<div class="card">
 			<a href="https://twitter.com/razzor_tweet" class="profile-text">
 		<img src="team/razzor.jpg" alt="Razzor" style="width:100%">
   		<h1>Razzor</h1>
   		<p class="title">Security Researcher</p>
-  	</a>
+  		</a>
 		</div>
 
-	</div>
+
+	
 </div>
 
 <footer>
