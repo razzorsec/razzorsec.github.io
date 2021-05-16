@@ -5,8 +5,8 @@ xmlhttp.onreadystatechange = function () {
 
     let i;
     for (i = 0; i < data.length; i++) {
-      let infoForSite = data[i]["gsx$_d9ney"]["$t"];
-      let siteLink = data[i]["gsx$_db1zf"]["$t"];
+      let infoForSite = data[i]["gsx$_cn6ca"]["$t"];
+      let siteLink = data[i]["gsx$_cokwr"]["$t"];
       
       
 
@@ -29,7 +29,7 @@ xmlhttp.onreadystatechange = function () {
 
 xmlhttp.open(
   "GET",
-  "https://spreadsheets.google.com/feeds/list/18cCyFbxG6AvhNsk5JLIFCwulcwHvmzxu1kI6decYSNw/od6/public/values?alt=json",
+  "https://spreadsheets.google.com/feeds/list/18cCyFbxG6AvhNsk5JLIFCwulcwHvmzxu1kI6decYSNw/3/public/values?alt=json",
   true
 );
 xmlhttp.send();
