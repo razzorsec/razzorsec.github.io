@@ -74,7 +74,64 @@
     text-align: left;
   }
 }
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+    border-bottom: 16px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Add animation to "page content" */
+.animate-bottom {
+  position: relative;
+  -webkit-animation-name: animatebottom;
+  -webkit-animation-duration: 1s;
+  animation-name: animatebottom;
+  animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+  from { bottom:-100px; opacity:0 } 
+  to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+  from{ bottom:-100px; opacity:0 } 
+  to{ bottom:0; opacity:1 }
+}
+
+@media screen and (max-width: 600px){
+#loader{
+border: 10px solid #f3f3f3;
+border-top: 10px solid #3498db;
+border-bottom: 10px solid #3498db;
+  }
+
+
+}
+#googleForm {
+   display:none; 
+text-align: center;
+}
 
 	</style>
 	<script>
@@ -87,10 +144,19 @@ function navFunction() {
     x.className = "topnav";
   }
 }
+var myVar;
 
+function loaderFunction() {
+  myVar = setTimeout(showPage, 500);
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("googleForm").style.display = "block";
+}
 	</script>
 </head>
-<body>
+<body onload="loaderFunction()" style="margin: 0;">
 <div class="row" style="margin-left:10px">
 	<div class="col-md-2">
 		<a class="link-text" href="index.html">
@@ -141,7 +207,8 @@ function navFunction() {
 </div>
 
 	</div>
-	<div class="centered">
+  <div id="loader"></div>
+	<div class="centered" id="googleForm">
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScRZgK1MeRdwdazd2aFfO414ZXQIBsWw0fQXtLqYoab_3EA_A/viewform?embedded=true" width="640" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 </div>
 	<footer>
