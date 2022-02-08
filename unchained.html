@@ -25,6 +25,62 @@
     <!-- Responsive Style -->
     <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 
+     <link
+     rel="stylesheet"
+     href="https://unpkg.com/swiper/swiper-bundle.min.css"
+   />
+
+   <!-- Demo styles -->
+   <style>
+
+     #team {
+       background:#ffffff;
+       font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+       font-size: 14px;
+       color: #000;
+       margin: 0;
+       padding: 0;
+     }
+
+     .swiper {
+       width: 100%;
+       padding-top: 50px;
+       padding-bottom: 200px;
+     }
+
+     .swiper-slide{
+       background-position: center;
+       background-size: cover;
+       color: #c4bdbf;
+       width: 300px;
+       height: 300px;
+       -webkit-box-reflect: below 1px linear-gradient(transparent,transparent,#0006);
+     }
+
+     .speakers-text {
+       font-size: 24px;
+       text-align: center;
+       text-transform: uppercase;
+       color:  #303030 ;
+       text-shadow: 2px 2px 4px rgb(146, 139, 139);
+
+     }
+
+     .speakers-bio {
+       font-size: 14px;
+       text-align: center;
+       /* text-decoration: none; */
+       color:  #303030 ;
+       text-shadow: 2px 2px 4px rgb(146, 139, 139);
+
+     }
+
+     .swiper-slide img {
+       display: block;
+       width: 100%;
+     }
+   </style>
+
   </head>
   <body>
 
@@ -179,6 +235,7 @@
       </div>
     </section>
 
+
     <!-- Team Section Start -->
     <section id="team" class="section-padding">
       <div class="container">
@@ -189,190 +246,69 @@
             </h2>
           </div>            
         </div>
-        <!-- First Four -->
-        <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/adrianhetman" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/adrian.jpg" alt="Adrian">
-
-              </div>
-              <div class="info-text">
-                <h3>Adrian Hetman</h3>
-                <p>DeFi security triager at Immunefi</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/joranhonig" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/joran.jpg" alt="Joran">
-
-              </div>
-              <div class="info-text">
-                <h3>Joran Honig</h3>
-                <p>Security Researcher and Product Lead (MythX) at ConsenSys Diligence</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/morphean_sec" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/sleepy.jpg" alt="Sleepy">
-
-              </div>
-              <div class="info-text">
-                <h3>Sleepy</h3>
-                <p>Junior Security Researcher at ConsenSys Diligence, Cypherpunk and cofounder of SkidsDAO</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/m0ham3dxx" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/mohamed.jpg" alt="Mohamed">
-
-              </div>
-              <div class="info-text">
-                <h3>Mohamed</h3>
-                <p>Founder: BlokFiny, Blokgames. <br/>Security Researcher, Ape</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-        </div>
-
-        <!-- Second Four -->
-
-                <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/0xRajeev" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/rajeev2.jpg" alt="Rajeev">
-
-              </div>
-              <div class="info-text">
-                <h3>Rajeev</h3>
-                <p>Founder: Secureum. <br/> Computer Scientist. PhD, Cybersecurity</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/gokulgaze" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/gokul.jpg" alt="Gokul">
-
-              </div>
-              <div class="info-text">
-                <h3>Gokul Alex</h3>
-                <p>Associate Director, KPMG. <br />Blockchain Educator and Quantum Computing Researcher </p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/danielvf" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/daniel.jpg" alt="Daniel">
-
-              </div>
-              <div class="info-text">
-                <h3>Daniel Von Fange</h3>
-                <p>Security Researcher and <br /> Senior Engineer at Origin Protocol</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://www.linkedin.com/in/andrei-vacaru-300042151/" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/andrei.jpg" alt="Andrei">
-
-              </div>
-              <div class="info-text">
-                <h3>Andrei Văcaru</h3>
-                <p>Formal Verification Engineer at Runtime Verification</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-        </div>
-
-        <!-- Third Four -->
 
         <div class="row">
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/timurguvenkaya" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/timur.jpg" alt="Timur">
 
-              </div>
-              <div class="info-text">
-                <h3>Timur Guvenkaya</h3>
-                <p>Senior Security Engineer at Halborn Security. Rust Enthusiast</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/chaintuts" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/josh.jpg" alt="josh">
-
-              </div>
-              <div class="info-text">
-                <h3>Josh McIntyre</h3>
-                <p>Software Engineer at Microsoft. <br/> Tech educator at Chaintuts.</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="https://twitter.com/rohasnagpal" target="_blank"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/rohas.jpg" alt="rohas">
-
-              </div>
-              <div class="info-text">
-                <h3>Rohas Nagpal</h3>
-                <p>Chief Blockchain Architect at HyFi Blockchain and Wrapped Asset Project</p>
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
-          </div>
-          <div class="col-sm-6 col-md-6 col-lg-3">
-            <!-- Team Item Starts -->
-            <a href="javascript: void(0)"><div class="team-item text-center">
-              <div class="team-img">
-                <img class="img-fluid" src="img/Spekers/hidden.jpg" alt="Coming Soon">
-
-              </div>
-              <div class="info-text">
-                <h3>Revealing Soon</h3>
-                <!-- <p>Founder: BlokFiny, Blockgames. Security Researcher</p> -->
-              </div>
-            </div> </a>
-            <!-- Team Item Ends -->
+          <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+              <img src="img/Spekers/adrian.jpg" />
+              <a href="https://twitter.com/adrianhetman" target="_blank"><h3 class="speakers-text">Adrian Hetman</h3><p class="speakers-bio">DeFi security triager at Immunefi</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/joran.jpg" />
+              <a href="https://twitter.com/joranhonig" target="_blank"><h3 class="speakers-text">Joran Honig</h3><p class="speakers-bio">Security Researcher and Product Lead (MythX) at ConsenSys Diligence</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/sleepy.jpg" />
+              <a href="https://twitter.com/morphean_sec" target="_blank"><h3 class="speakers-text">Sleepy</h3><p class="speakers-bio">Junior Security Researcher at ConsenSys Diligence, Cypherpunk and cofounder of SkidsDAO</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/mohamed.jpg" />
+              <a href="https://twitter.com/m0ham3dxx" target="_blank"><h3 class="speakers-text">Mohamed</h3><p class="speakers-bio">Founder: BlokFiny, Blokgames. <br/>Security Researcher, Ape</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/rajeev2.jpg" />
+              <a href="https://twitter.com/0xRajeev" target="_blank"><h3 class="speakers-text">Rajeev</h3><p class="speakers-bio">Founder: Secureum. <br/> Computer Scientist. PhD, Cybersecurity</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/gokul.jpg" />
+              <a href="https://twitter.com/gokulgaze" target="_blank"><h3 class="speakers-text">Gokul Alex</h3><p class="speakers-bio">Associate Director, KPMG. <br />Blockchain Educator and Quantum Computing Researcher</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/daniel.jpg" />
+              <a href="https://twitter.com/danielvf" target="_blank"><h3 class="speakers-text">Daniel Von Fange</h3><p class="speakers-bio">Security Researcher and <br /> Senior Engineer at Origin Protocol</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/andrei.jpg" />
+              <a href="https://www.linkedin.com/in/andrei-vacaru-300042151/" target="_blank"><h3 class="speakers-text">Andrei Văcaru</h3><p class="speakers-bio">Formal Verification Engineer at Runtime Verification</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/timur.jpg" />
+              <a href="https://twitter.com/timurguvenkaya" target="_blank"><h3 class="speakers-text">Timur Guvenkaya</h3><p class="speakers-bio">Senior Security Engineer at Halborn Security. Rust Enthusiast</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/josh.jpg" />
+              <a href="https://twitter.com/chaintuts" target="_blank"><h3 class="speakers-text">Josh McIntyre</h3><p class="speakers-bio">Software Engineer at Microsoft. <br/> Tech educator at Chaintuts.</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/rohas.jpg" />
+              <a href="https://twitter.com/rohasnagpal" target="_blank"><h3 class="speakers-text">Rohas Nagpal</h3><p class="speakers-bio">Chief Blockchain Architect at HyFi Blockchain and Wrapped Asset Project</p></a>
+             </div>
+             <div class="swiper-slide">
+              <img src="img/Spekers/hidden.jpg" />
+              <a href="javascript: void(0)"><h3 class="speakers-text">Revealing Soon</h3>
+                <!-- <p class="speakers-bio">text here</p> -->
+              </a>
+             </div>
+            </div>
+            <div class="swiper-pagination"></div>
           </div>
         </div>
-      </div>
-    </section>
-    <!-- Team Section End -->
+
+        </div>
+        </section>
+
 
  <!-- Sponsors Section Start -->
  <!-- <section id="spons" class="section-padding">
@@ -465,6 +401,32 @@
     <script src="assets/js/jquery.slicknav.js"></script>
     <script src="assets/js/main.js"></script>
    
-      
+          <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 20,
+          stretch: 0,
+          depth: 200,
+          modifier: 1,
+          slideShadows: true,
+        },
+        // pagination: {
+        //   el: ".swiper-pagination",
+        // },
+        loop: true,
+        autoplay: {
+            delay: 1500,
+            disableOnInteraction: false,
+        },
+      });
+    </script>
   </body>
 </html>
