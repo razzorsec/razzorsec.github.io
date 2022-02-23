@@ -80,6 +80,47 @@
        display: block;
        width: 100%;
      }
+     
+      .flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: transparent;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #303030;
+  color: white;
+  transform: rotateY(180deg);
+}
    </style>
 
   </head>
@@ -346,39 +387,39 @@
      
       <div class="col-sm-6 col-md-6 col-lg-3"> 
 
-        <!-- Team Item Starts -->
-
-         <a href="https://twitter.com/coinspect" target="_blank"><div class="team-item text-center">
-          <div class="team-img">
-            <img class="img-fluid" src="img/Sponsors/coins.png" alt="coinspect">
-
+      <!--card start-->
+         <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="img/Sponsors/coins.png" alt="Avatar" style="width:250px;height:60px; margin-top: 40%;">
+            </div>
+            <div class="flip-card-back">
+              <h1>Coinspect</h1> 
+              <p style="text-align: left;"> Coinspect Security was founded in 2014 by information security experts to offer services focused on cryptocurrency security. In 8 years Coinspect has audited hundreds of projects, millions of lines of code.</p> 
+            </div>
           </div>
-          <div class="info-text">
-            <h3>Coinspect</h3>
-           <!-- <p> None </p> -->
-          </div>
-        </div> </a> 
-
-        <!-- Team Item Ends -->
+        </div>
+  
+         <!-- card end -->
 
        </div>
       
              <div class="col-sm-6 col-md-6 col-lg-3"> 
 
-        <!-- Team Item Starts -->
-
-         <a href="https://twitter.com/immunefi" target="_blank"><div class="team-item text-center">
-          <div class="team-img">
-            <img class="img-fluid" src="img/Sponsors/immunefi.jpg" alt="immunefi">
-
+          <!--card start-->
+         <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="img/Sponsors/immunefi.jpg" alt="Avatar" style="width:100%;height:100%;">
+            </div>
+            <div class="flip-card-back">
+              <h1>Immunefi</h1> 
+              <p style="text-align: left;"> The leading bug bounty platform for blockchain. World's largest bug bounties. Protecting $100 billion in user funds </p> 
+            </div>
           </div>
-          <div class="info-text">
-            <h3>Immunefi</h3>
-           <!-- <p> None </p> -->
-          </div>
-        </div> </a> 
-
-        <!-- Team Item Ends -->
+        </div>
+  
+         <!-- card end -->
 
        </div>
       
