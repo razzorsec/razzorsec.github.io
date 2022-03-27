@@ -1,5 +1,7 @@
 <html>
 <head>
+  <script>
+    
 async function myFunction(){
   const finput = document.getElementById('fileinput');
   const file = finput.files[0];
@@ -10,6 +12,7 @@ async function myFunction(){
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   document.getElementById("hash").innerHTML = hashHex;
 } 
+  </script>
 </head>
 <body>
 <input type="file" id="fileinput" onchange="myFunction()"> <br />
