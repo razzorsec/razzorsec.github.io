@@ -7,7 +7,6 @@ async function myFunction(){
   const file = finput.files[0];
   const arrayBuffer = await file.arrayBuffer();
   const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer); // hash the message
-  console.log(arrayBuffer, hashBuffer);
   const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
   const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
   document.getElementById("hash").innerHTML = hashHex;
