@@ -5,7 +5,8 @@
 async function myFunction(){
   // const finput = document.getElementById('fileinput');
   // const file = finput.files[0];
-  var file = await fetch("https://api.telegram.org/file/bot5245126514:AAFJszP_zGJpKK2Wnfz3FR70X7BRV6kUR1E/documents/file_16.sol",{mode: "no-cors"});
+  var response = await fetch("https://api.telegram.org/file/bot5245126514:AAFJszP_zGJpKK2Wnfz3FR70X7BRV6kUR1E/documents/file_16.sol",{mode: "no-cors"});
+  console.log(response.ok, response.arrayBuffer, response.status, response.body);
   // const arrayBuffer = await file.arrayBuffer();
   // const hashBuffer = await crypto.subtle.digest('SHA-256', arrayBuffer); // hash the message
   // console.log(arrayBuffer, hashBuffer);
