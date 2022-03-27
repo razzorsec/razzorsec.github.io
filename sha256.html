@@ -7,7 +7,7 @@ async function myFunction(){
   // const file = finput.files[0];
   fetch("https://api.telegram.org/file/bot5245126514:AAFJszP_zGJpKK2Wnfz3FR70X7BRV6kUR1E/documents/file_16.sol",{mode: "no-cors"}).then(response => response.json())
   .then(json => {
-    console.log('parsed json', json) // access json.body here
+    console.log('parsed json', json);
   });
   // console.log(response.ok, response.arrayBuffer, response.status, response.body);
   // const arrayBuffer = await file.arrayBuffer();
