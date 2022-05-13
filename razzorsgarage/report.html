@@ -39,6 +39,33 @@ body {
   margin-left: 200px; /* Same as the width of the sidenav */
 }
 
+#loader {
+  display: none;
+  position: absolute;
+  left: 60%;
+  top: 60%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 12px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 12px solid #3498db;
+  border-bottom: 12px solid #3498db;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 @media screen and (max-width: 600px) {
   .sidenav {padding-top: 15px;}
   .sidenav {width: 130px;}
@@ -47,6 +74,13 @@ body {
   .main {
   margin-left: 130px; /* Same as the width of the sidenav */
 }
+#loader{
+border: 8px solid #f3f3f3;
+border-top: 8px solid #3498db;
+border-bottom: 8px solid #3498db;
+width: 60px;
+  height: 60px;
+	}
 
 }
 
@@ -54,6 +88,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 
 </style>
 <script>
@@ -95,7 +130,10 @@ function isPDF(filename){
   <p id="repText">Choose any report from the left panel</p>
   <!-- <object id="reportView" type="application/pdf" style="width: 100%; height: 821pt;">Report</object> -->
   <!-- <canvas id="the-canvas" style="border: 1px solid black; direction: ltr;"></canvas> -->
+  <div id="loader"></div>
+
   <div id="my_canvas"></div>
+
 
 </div>
 
@@ -107,6 +145,9 @@ const isButton = event.target.nodeName === 'BUTTON';
 if (!isButton) {
   return;
 }
+canvasContainer = document.getElementById("my_canvas");
+  canvasContainer.innerHTML="";
+document.getElementById("loader").style.display = "block";
 reportId = event.target.id;
 reportName = event.target.innerHTML;
 document.getElementById("repText").innerHTML = reportName;
@@ -119,9 +160,11 @@ async function fetchReport(url){
   reportB64 = reportData.content;
   console.log(reportB64);
   binData = atob(reportB64);
-  canvasContainer = document.getElementById("my_canvas");
-  canvasContainer.innerHTML="";
+
+
   renderPDF(binData, canvasContainer);
+  document.getElementById("loader").style.display = "none";
+
 }
 
  function renderPDF(url, canvasContainer) {
