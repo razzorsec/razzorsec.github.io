@@ -68,6 +68,7 @@ function isPDF(filename){
 </script>
 </head>
 <body onload="myFunction()">
+<script src="pdf.js"></script>
 
 <div id="reports" class="sidenav">
 
@@ -76,10 +77,15 @@ function isPDF(filename){
 <div class="main">
   <h2>Report Viewer</h2>
   <p id="repText">Choose any report from the left panel</p>
-  <object id="reportView" type="application/pdf" style="width: 100%; height: 821pt;">Report</object>
+  <!-- <object id="reportView" type="application/pdf" style="width: 100%; height: 821pt;">Report</object> -->
+  <!-- <canvas id="the-canvas" style="border: 1px solid black; direction: ltr;"></canvas> -->
+  <div id="my_canvas"></div>
+
 </div>
 
-<script>
+<script id="script">
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+    'pdf.worker.js';
 let wrapper = document.getElementById('reports');
 wrapper.addEventListener('click', (event) => {
 const isButton = event.target.nodeName === 'BUTTON';
@@ -97,10 +103,98 @@ async function fetchReport(url){
   reportData = await (await fetch(url)).json();
   reportB64 = reportData.content;
   console.log(reportB64);
-  obj = document.getElementById("reportView");
-  obj.data = 'data:application/pdf;base64,' + reportB64;
-
+  binData = atob(reportB64);
+  canvasContainer = document.getElementById("my_canvas");
+  canvasContainer.innerHTML="";
+  renderPDF(binData, canvasContainer);
 }
+
+ function renderPDF(url, canvasContainer) {
+
+ function renderPage(page) {
+
+  let viewport = page.getViewport({scale: .5})
+  const DPI = 72;
+  const PRINT_OUTPUT_SCALE = DPI/72; 
+  const scale = canvasContainer.clientWidth / viewport.width;
+  const canvas = document.createElement('canvas')
+  
+  const ctx = canvas.getContext('2d')
+  viewport = page.getViewport({scale})
+
+  canvas.width = Math.floor(viewport.width * PRINT_OUTPUT_SCALE);
+  canvas.height = Math.floor(viewport.height * PRINT_OUTPUT_SCALE);
+  canvas.style.width = '100%';
+
+  canvas.style.transform = 'scale(1,1)';
+  canvas.style.transformOrigin = '0% 0%';
+
+  const canvasWrapper = document.createElement('div');
+
+  canvasWrapper.style.width = '100%';
+  canvasWrapper.style.height = '100%';
+
+  canvasWrapper.appendChild(canvas);
+
+  const renderContext = {
+    canvasContext: ctx,
+    viewport,
+  }
+
+  canvasContainer.appendChild(canvasWrapper)
+
+  page.render(renderContext)
+}
+
+async function renderPages(pdfDoc) {
+  numPages = pdfDoc.numPages;
+  num = 1;
+  while(num<=numPages){
+  // for (let num = 1; num <= pdfDoc.numPages; num += 1)
+    await pdfDoc.getPage(num).then(renderPage);
+    num++;
+  }
+}
+
+pdfjsLib.disableWorker = true
+pdfjsLib.getDocument({ data: binData, }).promise.then(renderPages)
+}
+//   var loadingTask = pdfjsLib.getDocument({ data: binData, });
+//   var pdf = await loadingTask.promise;
+//     // Fetch the first page.
+//     var page = await pdf.getPage(1);
+//     var scale = 0.3;
+//     var viewport = page.getViewport({ scale: scale, });
+//     // Support HiDPI-screens.
+//     // var outputScale = window.devicePixelRatio || 1;
+
+//     // Prepare canvas using PDF page dimensions.
+//     var canvas = document.getElementById('the-canvas');
+//     var context = canvas.getContext('2d');
+
+//     canvas.height = viewport.height;
+//     canvas.width = viewport.width;
+//     // canvas.width = Math.floor(viewport.width * outputScale);
+//     // canvas.height = Math.floor(viewport.height * outputScale);
+//     // canvas.style.width = Math.floor(viewport.width) + "px";
+//     // canvas.style.height =  Math.floor(viewport.height) + "px";
+
+//     // var transform = outputScale !== 1
+//     //   ? [outputScale, 0, 0, outputScale, 0, 0]
+//     //   : null;
+
+//     // Render PDF page into canvas context.
+//     var renderContext = {
+//       canvasContext: context,
+//       // transform,
+//       viewport
+//     };
+//     page.render(renderContext);
+  
+//   // obj = document.getElementById("reportView");
+//   // obj.data = 'data:application/pdf;base64,' + reportB64;
+
+// }
 
 </script>
 </body>
