@@ -68,7 +68,7 @@ function isPDF(filename){
 </script>
 </head>
 <body onload="myFunction()">
-<script src="pdf.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.6.347/build/pdf.min.js"></script> 
 
 <div id="reports" class="sidenav">
 
@@ -84,8 +84,7 @@ function isPDF(filename){
 </div>
 
 <script id="script">
-    pdfjsLib.GlobalWorkerOptions.workerSrc =
-    'pdf.worker.js';
+
 let wrapper = document.getElementById('reports');
 wrapper.addEventListener('click', (event) => {
 const isButton = event.target.nodeName === 'BUTTON';
