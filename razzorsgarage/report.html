@@ -43,6 +43,12 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
 </style>
 <script>
 
@@ -75,7 +81,11 @@ function isPDF(filename){
 </div>
 
 <div class="main">
-  <h2>Report Viewer</h2>
+  <!-- <h2>Report Viewer</h2> -->
+  <h2 class="header">
+    <span>Report Viewer</span>
+    <span>Created by <a href="https://linkedin.com/in/Razzor">Razzor</a></span>
+  </h2>
   <p id="repText">Choose any report from the left panel</p>
   <!-- <object id="reportView" type="application/pdf" style="width: 100%; height: 821pt;">Report</object> -->
   <!-- <canvas id="the-canvas" style="border: 1px solid black; direction: ltr;"></canvas> -->
